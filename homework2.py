@@ -80,4 +80,37 @@
 #     ludzki_wiek_psa = 21 + (wiek_psa-2)*4
 #     print(ludzki_wiek_psa)
 
-#10
+#10 ##dodaj zeby było 01 i zakraglenia przy temp (k, f, d nawiasy)
+dane ="215021482120211921002076205020652020201520102005200119931990195018341750174418601946201"
+
+dane[0:4]
+dane[4:8]
+dane[8:12]
+dane[12:16]
+dane[16:20]
+
+for godzina in range(0,24):
+    poczatek_zakresu = godzina * 4
+    koniec_zakresu = poczatek_zakresu + 4
+    temp = int(dane[poczatek_zakresu:koniec_zakresu]) / 100
+    tab = ""
+    if temp <=18.5:
+        tab = "\t!"
+    elif temp <=20:
+        tab = "\t!!"
+    wiersz_string = f"{godzina}:00:\t {temp}\u00b0C{tab}"
+    print(wiersz_string)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
