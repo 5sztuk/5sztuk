@@ -17,13 +17,15 @@
 # print('ostatnia cyfra z twojej liczby to ' + liczba[-1])
 
 #3
-# n=int(input("podaj długość prostokąta: "))
-# m=int(input("podaj szerokość prostokąta: "))
-# c="-"
-# def print_rect(n, m, c):
-#     for a in range(m):
-#         print (n*c)
-# print_rect(n, m, c)
+# wysokosc = "|"
+# szerokosc = "-"
+# l_szer = int(input("podaj szerokość prostokąta: "))
+# l_wys = int(input("podaj wysokość prostokąta: "))
+# print("+" + l_szer*szerokosc + "+")
+# for i in range(0,l_wys):
+#         print(wysokosc + l_szer*" " + wysokosc)
+# print("+" + l_szer*szerokosc + "+")
+
 
 #4
 # liczba_bin = input("podaj liczbę binarną:")
@@ -39,7 +41,16 @@
 #     print("podany rok nie jest przestępny")
 
 #6
-
+# owoc1 = input("podaj 1. owoc")
+# owoc2 = input("podaj 2. owoc")
+# owoc3 = input("podaj 3. owoc")
+# lista = [owoc1, owoc2, owoc3]
+# # print("+" + len(owoc1)*"-" + "+" + len(owoc2)*"-" + "+" + len(owoc3)*"-" + "+")
+# # print("|" + owoc1 + "|" + owoc2 + "|" + owoc3 + "|")
+# # print("+" + len(owoc1)*"-" + "+" + len(owoc2)*"-" + "+" + len(owoc3)*"-" + "+")
+# print("+" + 20*"-" + "+" + 20*"-" + "+" + 20*"-" + "+")
+# print("|" + owoc1+(20-len(owoc1))*" " + "|" + owoc2+(20-len(owoc2))*" " + "|" + owoc3+(20-len(owoc3))*" " + "|")
+# print("+" + 20*"-" + "+" + 20*"-" + "+" + 20*"-" + "+")
 
 #7
 # kwota_PLN = float(input("podaj kwotę do rozmienienia: "))
@@ -81,36 +92,25 @@
 #     print(ludzki_wiek_psa)
 
 #10 ##dodaj zeby było 01 i zakraglenia przy temp (k, f, d nawiasy)
-dane ="215021482120211921002076205020652020201520102005200119931990195018341750174418601946201"
-
-dane[0:4]
-dane[4:8]
-dane[8:12]
-dane[12:16]
-dane[16:20]
-
-for godzina in range(0,24):
-    poczatek_zakresu = godzina * 4
-    koniec_zakresu = poczatek_zakresu + 4
-    temp = int(dane[poczatek_zakresu:koniec_zakresu]) / 100
-    tab = ""
-    if temp <=18.5:
-        tab = "\t!"
-    elif temp <=20:
-        tab = "\t!!"
-    wiersz_string = f"{godzina}:00:\t {temp}\u00b0C{tab}"
-    print(wiersz_string)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# dane = "215021482120211921002076207620502065202020152010200520002001199319901950183417501744186019462010"
+#
+# dane[0:4]
+# dane[4:8]
+# dane[8:12]
+# dane[12:16]
+# dane[16:20]
+#
+# for godzina in range(0,24):
+#     poczatek_zakresu = godzina * 4
+#     koniec_zakresu = poczatek_zakresu + 4
+#     temp = int(dane[poczatek_zakresu:koniec_zakresu]) / 100
+#     zero = ""
+#     if godzina <=9:
+#         zero = "0"
+#     tab = ""
+#     if temp <=18.5:
+#         tab = "\t!"
+#     elif temp <=20:
+#         tab = "\t!!"
+#     wiersz_string = "{}{}:00:\t {:.2f}\u00b0C{}".format(zero,godzina,temp,tab)
+#     print (wiersz_string)
