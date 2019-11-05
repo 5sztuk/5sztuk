@@ -20,6 +20,17 @@
 #print(len(tekst))
 #print(tekst[0])
 
-tekst = "Tytuł: Ala ma kota"
-dlugosc = len(tekst)
-print(tekst[dlugosc-1])
+#tekst = "Tytuł: Ala ma kota"
+#dlugosc = len(tekst)
+#print(tekst[dlugosc-1])
+
+
+
+
+
+
+
+
+
+
+
