@@ -66,32 +66,73 @@
 
 
 
-from urllib.request import urlopen
-url = "https://wallpaperlist.com/wave-sea-blue-water-nature-10852/"
-html = urlopen(url)
+# from urllib.request import urlopen
+# url = "https://wallpaperlist.com/wave-sea-blue-water-nature-10852/"
+# html = urlopen(url)
+# from bs4 import BeautifulSoup
+# soup = BeautifulSoup(html)
+# for res in soup.findAll('img'):
+#     print(res.get('src'))
+#     list_var = url.split('/')
+#
+# image_adress = (list_var[0]+"//"+list_var[2]+res.get('src')
+#     resource = image_adress
+#     output = open(res.get(('src’.split(‘/‘)[-1],”wb")
+#   # output.write(resource.read('/home/kursant/Pictures'))
+#   # print('znaleziono: %s obrazków') % len(images)
+#
+#     print(list_var[0]+"//"+list_var[2]+res.get('src'))
+
+
+import os
 from bs4 import BeautifulSoup
-soup = BeautifulSoup(html)
-for res in soup.findAll('img'):
-    print(res.get('src'))
-    list_var = url.split('/')
+import requests
+from PIL import Image
+from io import BytesIO
+import smtplib
+from email.mime.text import MIMEText
 
-image_adress = (list_var[0]+"//"+list_var[2]+res.get('src')
-    resource = image_adress
-    output = open(res.get(('src’.split(‘/‘)[-1],”wb")
-  # output.write(resource.read('/home/kursant/Pictures'))
-  # print('znaleziono: %s obrazków') % len(images)
-
-    print(list_var[0]+"//"+list_var[2]+res.get('src'))
+page = requests.get('https://wallpaperlist.com/')
+parser = BeautifulSoup(page.content, 'html.parser')
+images = parser.find_all('img')
 
 
+licznik_zdjec = 0
+inne_formaty = 0
+
+for image in images:
+    link = image['src']
+    url = f"https://wallpaperlist.com/{link}"
+
+    response = requests.get(url)
+    image = Image.open(BytesIO(response.content))
+    nazwa = url.split("/")
+    format_pliku = url[-3:]
+
+    if format_pliku == "jpg":
+        nazwa = nazwa[8]
+        image.save(f"images\{nazwa}")
+        image = image.resize((64, 64))
+        image.save(f"images\\mini\{nazwa}")
+        licznik_zdjec = licznik_zdjec + 1
+
+    else:
+        inne_formaty = inne_formaty + 1
 
 
+pliki_oryginalne = os.listdir("images")
+ile_zdjec_o = 0
+rozmiar_oryginal = 0
+suma_rozmiar_oryginal = 0
 
+for zdjecie in pliki_oryginalne:
+    if zdjecie[-3:] == "jpg":
+        rozmiar_oryginal = os.path.getsize(f"images\\{zdjecie}")
+        oryginal_MB = rozmiar_oryginal / 1024 ** 2
+        ile_zdjec_o = ile_zdjec_o + 1
+        suma_rozmiar_oryginal = suma_rozmiar_oryginal + oryginal_MB
+suma_rozmiar_oryginal = "%0.2f" % suma_rozmiar_oryginal
 
-
-
-
-
-
-
-
+#
+#
+#
